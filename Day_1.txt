@@ -1,0 +1,26 @@
+public class SimpleAI {
+
+
+    public String think(String circumstances) {
+        if (circumstances.equals("football")) {
+            return "AI decides to play football.";
+        } else if (circumstances.equals("volleyball")) {
+            return "AI decides to play volleyball.";
+        } else if (circumstances.equals("cricket")) {
+            return "AI decides to play cricket.";
+        } else {
+            return "AI is confused and does nothing.";
+        }
+    }
+
+    public static void main(String[] args) {
+        SimpleAI ai = new SimpleAI();
+
+        String circumstances1 = "football";
+        String circumstances2 = "volleyball";
+        String circumstances3 = "cricket";
+        String circumstances4 = "unknown";
+
+        System.out.println(ai.think(circumstances1));
+    }
+}
