@@ -1,0 +1,58 @@
+import java.util.HashSet;
+import java.util.Set;
+import java.util.*;
+
+public class Day_4 {
+
+
+    private static final Set<String> positiveKeywords = new HashSet<>();
+
+    static {
+
+        positiveKeywords.add("exited");
+        positiveKeywords.add("waiting");
+        positiveKeywords.add("fantastic");
+        positiveKeywords.add("bored");
+        positiveKeywords.add("great");
+    }
+
+    public static void main(String[] args) {
+
+        String[] sentences = {
+                "I am so exited with this product!",
+                "I hate waiting for a long time.",
+                "This is a fantastic experience!",
+                "I am bored with this work.",
+                "I love the new innovation of this app."
+        };
+
+        // Analyze and classify each sentence
+        for (String sentence : sentences) {
+            String sentiment = classifySentiment(sentence);
+            System.out.println("Sentence: \"" + sentence + "\"");
+            System.out.println("Sentiment: " + sentiment);
+            System.out.println();
+        }
+    }
+
+    private static String classifySentiment(String sentence) {
+        int positiveScore = 0;
+        int Neutral = 0;
+
+        String[] words = sentence.toLowerCase().split("\\s+");
+
+        for (String word : words) {
+            if (positiveKeywords.contains(word)) {
+                positiveScore++;
+            } else {
+                Neutral++;
+
+            }
+        }
+        if (positiveScore > Neutral) {
+            return "Positive";
+        } else {
+            return "Neutral";
+        }
+    }
+}
